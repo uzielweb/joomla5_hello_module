@@ -91,3 +91,27 @@ O arquivo `HelloHelper.php` é um exemplo de um helper para um módulo personali
 
 O arquivo `HelloHelper.php` demonstra como criar um helper para um módulo personalizado no Joomla, especificamente para o módulo `mod_hello`. Ele fornece uma maneira de recuperar dados dinâmicos do banco de dados, como uma lista de artigos, que podem ser usados pelo módulo para exibir conteúdo. Isso permite uma maior flexibilidade e personalização no desenvolvimento de módulos, facilitando a criação de funcionalidades específicas para cada módulo.****
 
+## defaultp.php em /tmpl
+
+O arquivo `default.php` localizado no diretório `/tmpl` de um módulo Joomla, como `mod_hello`, é responsável pela exibição do layout padrão do módulo. Este arquivo é um exemplo de como o Joomla permite que os desenvolvedores personalizem a aparência dos módulos através de templates. Vamos detalhar cada parte do código para entender melhor o que ele faz e como ele funciona no contexto do Joomla.
+
+### Verificação de Execução
+
+- **Verificação de Execução**: A linha `defined('_JEXEC') or die;` é uma verificação de segurança para garantir que o código só seja executado dentro do ambiente do Joomla. Isso evita que o código seja acessado diretamente através de um navegador.
+
+### Condição de Exibição
+
+- **Condição de Exibição**: O código começa com uma condição que verifica se a variável `$list` está definida e não está vazia. Se `$list` estiver vazia, o script retorna imediatamente, evitando a exibição de conteúdo vazio.
+
+### Estrutura HTML
+
+- **Estrutura HTML**: O código então define uma estrutura HTML básica para o módulo. Ele cria um `div` com a classe `hello`, que pode ser usada para estilização CSS. Dentro deste `div`, há um título `h3` que exibe uma saudação personalizada, obtida através do método `$params->get('greeting')`.
+
+### Lista de Itens
+
+- **Lista de Itens**: Abaixo do título, há uma lista não ordenada (`ul`) que é preenchida dinamicamente com itens da variável `$list`. Cada item da lista é representado por um elemento de lista (`li`) que exibe o título do item. Isso é feito através de um loop `foreach`, que itera sobre cada item em `$list` e exibe seu título.
+
+### Conclusão
+
+O arquivo `default.php` é um exemplo de como os desenvolvedores podem personalizar a aparência dos módulos no Joomla. Ele demonstra como exibir dados dinâmicos, como uma lista de itens, e como usar parâmetros personalizáveis para ajustar a saudação exibida. Este arquivo é um componente crucial do módulo, pois define a estrutura e o conteúdo que será exibido aos usuários finais. A flexibilidade oferecida pelo Joomla permite que os desenvolvedores criem módulos altamente personalizáveis e dinâmicos, adaptando-se às necessidades específicas de cada projeto.
+
