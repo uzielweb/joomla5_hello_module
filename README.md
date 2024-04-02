@@ -1,2 +1,2 @@
-# joomla5_hello_module
+# Joomla 5 Hello Module
 Hello is a scaffolding Joomla 5 Module
