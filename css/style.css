@@ -1,0 +1,26 @@
+
+.mod_bootstrap_carousel_itemslist .carousel-control-prev, .mod_bootstrap_carousel_itemslist .carousel-control-next {
+	font-size: 5rem;
+	text-shadow: 0 0 10px regba(0,0,0,.5);
+    opacity: 0.2;
+}
+.mod_bootstrap_carousel_itemslist  .carousel-inner{
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.mod_bootstrap_carousel_itemslist .description .lead {
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 35px;
+	text-align: left;
+	color: #000;
+	line-height: 1.25em;
+}
+.mod_bootstrap_carousel_itemslist .description  {
+	height: 100%;
+	align-items: center;
+}
+.mod_bootstrap_carousel_itemslist {
+	padding: 3rem 0;
+}
