@@ -19,14 +19,14 @@
 		<language tag="en-GB">language/en-GB/mod_hello.ini</language>
 		<language tag="en-GB">language/en-GB/mod_hello.sys.ini</language>
 	</languages>
-<media destination="mod_hello" folder="media">
-  <folder>images</folder>
-  <folder>css</folder>
-  <folder>js</folder>
- </media>
+	<media destination="mod_hello" folder="media">
+		<folder>images</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
 	<help key="Site_Modules:_Hello" />
 	<config>
-		<fields name="params">
+		<fields name="params" addfieldprefix="Joomla\Component\Content\Administrator\Field">
 			<fieldset name="basic">
 				<field name="greeting" type="text" label="MOD_HELLO_GREETING_LABEL" description="MOD_HELLO_GREETING_DESC" default="Hello, World!" />
 			</fieldset>
