@@ -117,6 +117,12 @@ The `default.php` file located in the `/tmpl` directory of a Joomla module, such
 
 The `default.php` file is an example of how developers can customize the appearance of modules in Joomla. It demonstrates how to display dynamic data, such as a list of items, and how to use customizable parameters to adjust the displayed greeting. This file is a crucial component of the module, as it defines the structure and content that will be displayed to the end-users. The flexibility offered by Joomla allows developers to create highly customizable and dynamic modules, adapting to the specific needs of each project.
 
+### The Media Folder in Media Tag in the XML
+- Media Tag: This tag specifies the directories that will be created under the media folder for storing images, CSS, and JavaScript files. When the module is installed, Joomla will automatically create these directories and place the corresponding files inside them in /media/ folder in the root of your Joomla installation.
+
+### Fields Tag wirh field prefix
+- This tag defines custom parameters for the module. The name="params" attribute specifies that these fields are for module parameters. The addfieldprefix="Joomla\Component\Content\Administrator\Field" attribute allows the use of fields from the Joomla Content component.
+
 # Portuguese Description
 
 Este código é um exemplo de um módulo personalizado para Joomla 5, especificamente um dispatcher para um módulo chamado `mod_hello`. Vamos analisar cada parte do código para entender melhor o que ele faz e como ele funciona no contexto do Joomla.
@@ -216,6 +222,16 @@ O arquivo `default.php` localizado no diretório `/tmpl` de um módulo Joomla, c
 ### Condição de Exibição
 
 - **Condição de Exibição**: O código começa com uma condição que verifica se a variável `$list` está definida e não está vazia. Se `$list` estiver vazia, o script retorna imediatamente, evitando a exibição de conteúdo vazio.
+
+### A pasta de mídia na tag de mídia no XML
+
+ - Media Tag: Esta tag especifica os diretórios que serão criados na pasta media para armazenar imagens, CSS e arquivos JavaScript.  Quando o módulo for instalado, o Joomla criará automaticamente esses diretórios e colocará os arquivos correspondentes dentro deles na pasta /media/ na raiz da instalação do Joomla.
+
+
+
+ ### Tag de campos com prefixo de campo
+
+ - Esta tag define parâmetros customizados para o módulo.  O atributo name="params" especifica que esses campos são para parâmetros de módulo.  O atributo addfieldprefix="Joomla\Component\Content\Administrator\Field" permite o uso de campos do componente Joomla Content.
 
 ### Estrutura HTML
 
