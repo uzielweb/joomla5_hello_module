@@ -2,7 +2,7 @@
 Hello is a scaffolding Joomla 5 Module
 
 # This is the default Joomla 5 Module structure
-
+```
 mod_hello/
 │
 ├── language/               # Language folder and files
@@ -28,7 +28,7 @@ mod_hello/
 │   └── default.php         # Default display file
 │
 ├── mod_hello.xml           # Module manifest (configuration and structure)
-
+```
 # English Description
 
 This code is an example of a custom module for Joomla 5, specifically a dispatcher for a module called `mod_hello`. Let's analyze each part of the code to better understand what it does and how it works within the context of Joomla.
@@ -152,6 +152,7 @@ The `default.php` file is an example of how developers can customize the appeara
 Este código é um exemplo de um módulo personalizado para Joomla 5, especificamente um dispatcher para um módulo chamado `mod_hello`. Vamos analisar cada parte do código para entender melhor o que ele faz e como ele funciona no contexto do Joomla.
 
 # Estrutura padrão de módulo para Joomla 5
+```
 mod_hello/
 │
 ├── language/               # Arquivos de linguagem
@@ -177,7 +178,7 @@ mod_hello/
 │   └── default.php         # Arquivo de exibição padrão
 │
 ├── mod_hello.xml           # Manifesto do módulo (configuração e estrutura)
-
+```
 ## Dispatcher.php em src/Dispatcher
 ### Namespace e Uso de Classes
 
