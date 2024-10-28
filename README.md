@@ -1,9 +1,33 @@
 # Joomla 5 Hello Module
 Hello is a scaffolding Joomla 5 Module
 
-This is the default Joomla 5 Modules structure
+# This is the default Joomla 5 Module structure
 
-![image](https://github.com/uzielweb/joomla5_hello_module/assets/2349451/78f90d5f-9e97-4825-b689-f0d062e46664)
+mod_hello/
+│
+├── language/               # Language folder and files
+│   └── en-GB/  
+│       ├── mod_hello.ini          # Text displayed by the module
+│       └── mod_hello.sys.ini      # Metadata (name and description)
+│
+├── media/                  # Static resources
+│   ├── css/style.css                # Module CSS Styles
+│   ├── images/             # Images used by the module
+│   └── js/script.js                 # Scripts JavaScript
+│
+├── services/               # Dependency injection services
+│   └── provider.php        # Service configuration
+│
+├── src/                    # Module logic core files
+│   ├── Dispatcher/
+│   │   └── Dispatcher.php  # Controller to handle requests
+│   └── Helper/
+│       └── HelloHelper.php # Module auxiliary functions
+│
+├── tmpl/                   # Layouts e templates
+│   └── default.php         # Default display file
+│
+├── mod_hello.xml           # Module manifest (configuration and structure)
 
 # English Description
 
@@ -126,6 +150,33 @@ The `default.php` file is an example of how developers can customize the appeara
 # Portuguese Description
 
 Este código é um exemplo de um módulo personalizado para Joomla 5, especificamente um dispatcher para um módulo chamado `mod_hello`. Vamos analisar cada parte do código para entender melhor o que ele faz e como ele funciona no contexto do Joomla.
+
+# Estrutura padrão de módulo para Joomla 5
+mod_hello/
+│
+├── language/               # Arquivos de linguagem
+│   └── en-GB/  
+│       ├── mod_hello.ini          # Texto exibido pelo módulo
+│       └── mod_hello.sys.ini      # Metadados (nome e descrição)
+│
+├── media/                  # Recursos estáticos
+│   ├── css/                # Estilos CSS do módulo
+│   ├── images/             # Imagens usadas pelo módulo
+│   └── js/                 # Scripts JavaScript
+│
+├── services/               # Serviços para injeção de dependências
+│   └── provider.php        # Configuração de serviços
+│
+├── src/                    # Arquivos principais de lógica do módulo
+│   ├── Dispatcher/
+│   │   └── Dispatcher.php  # Controlador para tratar requisições
+│   └── Helper/
+│       └── HelloHelper.php # Funções auxiliares do módulo
+│
+├── tmpl/                   # Layouts e templates
+│   └── default.php         # Arquivo de exibição padrão
+│
+├── mod_hello.xml           # Manifesto do módulo (configuração e estrutura)
 
 ## Dispatcher.php em src/Dispatcher
 ### Namespace e Uso de Classes
