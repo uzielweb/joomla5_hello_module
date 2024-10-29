@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalizar Módulo Joomla 5</title>
+    <title>Module generator - </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Replace, Rename, and Update Module Files</h1>
-
+        <h1 class="text-center">Module generator</h1>
+   <h2 class="text-center">This will use mod_hello, replicating and changing contents to create a new customized module</h2>
         <form method="POST" class="mt-4">
             <div class="mb-3">
                 <label for="moduleName" class="form-label">Module Name:</label>
