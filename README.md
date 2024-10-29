@@ -1,7 +1,7 @@
 # Joomla 5 Hello Module
 Hello is a scaffolding Joomla 5 Module
 
-## NOW YOU CAN CREATE YOUR OWN MODULE IN A EASY AY USING THE MODULEMODIFIER.PHP FILE INSIDE THIS PROJECT
+## NOW YOU CAN CREATE YOUR OWN MODULE IN A EASY WAY USING THE MODULEMODIFIER.PHP FILE INSIDE THIS PROJECT
 - put in any folder project for your better management . Eg: D:\Laragon\www\mygenerators\modulegenerator\
 
 ## This is the default Joomla 5 Module structure
