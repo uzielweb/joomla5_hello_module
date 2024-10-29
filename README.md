@@ -1,7 +1,10 @@
 # Joomla 5 Hello Module
 Hello is a scaffolding Joomla 5 Module
 
-# This is the default Joomla 5 Module structure
+## NOW YOU CAN CREATE YOUR OWN MODULE IN A EASY AY USING THE MODULEMODIFIER.PHP FILE INSIDE THIS PROJECT
+- put in any folder project for your better management . Eg: D:\Laragon\www\mygenerators\modulegenerator\
+
+## This is the default Joomla 5 Module structure
 ```
 mod_hello/
 │
@@ -151,7 +154,11 @@ The `default.php` file is an example of how developers can customize the appeara
 
 Este código é um exemplo de um módulo personalizado para Joomla 5, especificamente um dispatcher para um módulo chamado `mod_hello`. Vamos analisar cada parte do código para entender melhor o que ele faz e como ele funciona no contexto do Joomla.
 
-# Estrutura padrão de módulo para Joomla 5
+## AGORA VOCÊ PODE CRIAR SEU PRÓPRIO MÓDULO DE FORMA FÁCIL USANDO O ARQUIVO MODULEMODIFIER.PHP DENTRO DESTE PROJETO
+
+- coloque qualquer pasta do projeto para seu melhor gerenciamento. Ex: D:\Laragon\www\mygenerators\modulegenerator\
+  
+## Estrutura padrão de módulo para Joomla 5
 ```
 mod_hello/
 │
