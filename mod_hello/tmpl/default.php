@@ -9,7 +9,14 @@
  */
 
 defined('_JEXEC') or die;
-
+use Joomla\CMS\Factory;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('mod_hello_css', 'media/mod_hello/css/style.css');
+$wa->registerAndUseScript('mod_hello_script', 'media/mod_hello/js/script.js');
 if (!$list) {
     return;
 }
