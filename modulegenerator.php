@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Module generator</h1>
-        <h2 class="text-center">This will use mod_hello, replicating and changing contents to create a new customized module</h2>
+        <h1 class="text-center h3">Module generator</h1>
+        <h2 class="text-center h4">This will use mod_hello, replicating and changing contents to create a new customized module</h2>
         <form method="POST" class="mt-4">
             <div class="mb-3">
                 <label for="moduleName" class="form-label">Module Name:</label>
@@ -58,7 +58,7 @@
             $newLang = $_POST['newLang'];
         
             if (!is_dir($dir)) {
-                echo "<p class='text-danger'>The directory 'mod_hello' does not exist!</p>";
+                echo "<span class='text-danger'>The directory 'mod_hello' does not exist!</span>";
                 exit;
             }
              // Função para limpar o diretório cache
@@ -201,7 +201,7 @@
                 if ($baseName !== $newBaseName) {
                     $newBasePath = dirname($dir) . DIRECTORY_SEPARATOR . $newBaseName;
                     rename($dir, $newBasePath);
-                    echo "<p class='text-success'>Directory renamed to '$newBaseName'</p>";
+                    echo "<span class='text-success'>Directory renamed to '$newBaseName'. </span>";
                 }
             }
 
@@ -227,11 +227,11 @@
     // Copia o diretório antes de fazer qualquer modificação
     $newDir = $cacheDir . '/mod_' . $newWord;
     if (copyDirectory($dir, $newDir)) {
-        echo "<p class='text-success'>Directory 'mod_hello' copied to '$newDir'</p>";
+        echo "<span class='text-success'>Directory 'mod_hello' copied to '$newDir'. </span>";
         addLanguage($newDir, $newLang);
         replaceContentInFiles($newDir, $newWord, $moduleName, $author, $authorEmail, $authorUrl, $creationDate, $newLang);
         renameFilesAndDirectories($newDir, $newWord);
-        echo "<p class='text-success'>Process completed successfully!</p>";
+        echo "<span class='text-success'>Process completed successfully! </span>";
         // zip the new module
         $zip = new ZipArchive();
         $zipFileName = $cacheDir . '/mod_' . $newWord . '.zip';
@@ -252,9 +252,11 @@
                 }
             }
             $zip->close();
-            echo "<p class='text-success'>The new module has been zipped successfully!</p>";
+            echo "<span class='text-success'>The new module has been zipped successfully! </span>";
+            // zip link
+            echo "<span><a href='$zipFileName' class='btn btn-success' download>Download the new module</a>. </span>";
         } else {
-            echo "<p class='text-danger'>Failed to zip the new module!</p>";
+            echo "<span class='text-danger'>Failed to zip the new module! </span>";
         }
 
 
