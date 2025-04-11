@@ -1,16 +1,8 @@
-
 # Joomla 5 Hello Module
 Hello is a scaffolding Joomla 5 Module
 
 ## NOW YOU CAN CREATE YOUR OWN MODULE IN A EASY WAY USING THE modulegenerator.php FILE INSIDE THIS PROJECT
 - put in any folder project for your better management . Eg: D:\Laragon\www\mygenerators\modulegenerator\
-
-### How to use it.
-Access via yout project url (Eg.: mygengerators.local/modulegenerator/modulegenerator.php and fill the form, click in "execute" button, so you can download it.
-
-![image](https://github.com/user-attachments/assets/edfa387b-df9d-4e36-99dd-734656c8c5f4)
-
-![image](https://github.com/user-attachments/assets/5e7d755a-21d1-4f96-8adc-9892765e9450)
 
 ## This is the default Joomla 5 Module structure
 ```
@@ -165,14 +157,6 @@ Este código é um exemplo de um módulo personalizado para Joomla 5, especifica
 ## AGORA VOCÊ PODE CRIAR SEU PRÓPRIO MÓDULO DE FORMA FÁCIL USANDO O ARQUIVO MODULEMODIFIER.PHP DENTRO DESTE PROJETO
 
 - coloque qualquer pasta do projeto para seu melhor gerenciamento. Ex: D:\Laragon\www\mygenerators\modulegenerator\
-
-### Como usar.
-
-Acesse através da url do seu projeto (Ex.: mygengerators.local/modulegenerator/modulegenerator.php) e preencha o formulário, clique no botão "executar" para poder baixá-lo.
-
-![imagem](https://github.com/user-attachments/assets/edfa387b-df9d-4e36-99dd-734656c8c5f4)
-
-![imagem](https://github.com/user-attachments/assets/5e7d755a-21d1-4f96-8adc-9892765e9450)
   
 ## Estrutura padrão de módulo para Joomla 5
 ```
