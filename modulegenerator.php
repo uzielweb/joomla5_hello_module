@@ -18,14 +18,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="clientType" class="form-label">Client Type:</label>
-                <select id="clientType" name="clientType" class="form-select" required>
-                    <option value="site">Site (Frontend)</option>
-                    <option value="administrator">Administrator (Backend)</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
                 <label for="author" class="form-label">Author Name:</label>
                 <input type="text" id="author" name="author" class="form-control" placeholder="Author name" required>
             </div>
@@ -64,10 +56,9 @@
             $authorUrl = $_POST['authorUrl'];
             $creationDate = $_POST['creationDate'];
             $newLang = $_POST['newLang'];
-            $clientType = $_POST['clientType']; // Novo parâmetro para o tipo de cliente
         
             if (!is_dir($dir)) {
-                echo '<span class="text-danger">The directory "mod_hello" does not exist!</span>';
+                echo "<span class='text-danger'>The directory 'mod_hello' does not exist!</span>";
                 exit;
             }
              // Função para limpar o diretório cache
@@ -129,7 +120,7 @@
             }
 
             // Função para substituir conteúdo nos arquivos
-            function replaceContentInFiles($dir, $newWord, $moduleName, $author, $authorEmail, $authorUrl, $creationDate, $newLang, $clientType) {
+            function replaceContentInFiles($dir, $newWord, $moduleName, $author, $authorEmail, $authorUrl, $creationDate, $newLang) {
                 $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
                 foreach ($iterator as $file) {
                     if ($file->isFile() && is_writable($file)) {
@@ -141,13 +132,6 @@
                         );
 
                         if (pathinfo($file, PATHINFO_EXTENSION) === 'xml') {
-                            // Atualiza o atributo client no XML para o tipo selecionado
-                            $content = preg_replace(
-                                '/<extension type="module" client="site" method="upgrade">/',
-                                '<extension type="module" client="' . $clientType . '" method="upgrade">',
-                                $content
-                            );
-                            
                             $content = preg_replace([
                                 '/<author>.*?<\/author>/',
                                 '/<creationDate>.*?<\/creationDate>/',
@@ -179,29 +163,6 @@
                                 ["MOD_$newWord", ucfirst($moduleName)],
                                 $content
                             );
-                        }
-
-                        // Atualiza os namespaces para o tipo de cliente correto
-                        if (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-                            // Substitui o namespace Site pelo tipo de cliente selecionado
-                            if ($clientType === 'administrator') {
-                                $content = str_replace(
-                                    'namespace Joomla\Module\\' . ucfirst($newWord) . '\Site',
-                                    'namespace Joomla\Module\\' . ucfirst($newWord) . '\Administrator',
-                                    $content
-                                );
-                            }
-                            
-                            // Atualiza o registro do HelperFactory no provider.php
-                            if (basename($file) === 'provider.php') {
-                                $clientNamespace = ucfirst($clientType === 'administrator' ? 'Administrator' : 'Site');
-                                // Substitui a string de registro do HelperFactory para o namespace correto
-                                $content = str_replace(
-                                    'new HelperFactory(\'\\Joomla\\Module\\Hello\\Site\\Helper\')',
-                                    'new HelperFactory(\'\\Joomla\\Module\\' . ucfirst($newWord) . '\\' . $clientNamespace . '\\Helper\')',
-                                    $content
-                                );
-                            }
                         }
 
                         file_put_contents($file, $content);
@@ -240,7 +201,7 @@
                 if ($baseName !== $newBaseName) {
                     $newBasePath = dirname($dir) . DIRECTORY_SEPARATOR . $newBaseName;
                     rename($dir, $newBasePath);
-                    echo '<span class="text-success">Directory renamed to '.$newBaseName.'. </span>';
+                    echo "<span class='text-success'>Directory renamed to '$newBaseName'. </span>";
                 }
             }
 
@@ -266,50 +227,11 @@
     // Copia o diretório antes de fazer qualquer modificação
     $newDir = $cacheDir . '/mod_' . $newWord;
     if (copyDirectory($dir, $newDir)) {
-        echo '<span class="text-success">Directory "mod_hello" copied to '.$newDir.'. </span>';
-        
-        // Copia o arquivo de documentação para o novo módulo
-        if (file_exists('module_documentation.md')) {
-            // Lê o conteúdo do arquivo de documentação
-            $docContent = file_get_contents('module_documentation.md');
-            
-            // Substitui placeholders na documentação
-            $docContent = str_replace(
-                ['mod_yourmodule', 'YourmoduleHelper', 'mod_seumodulo', 'SeumoduloHelper'],
-                ['mod_' . $newWord, ucfirst($newWord) . 'Helper', 'mod_' . $newWord, ucfirst($newWord) . 'Helper'],
-                $docContent
-            );
-            
-            // Salva a documentação personalizada no novo módulo
-            file_put_contents($newDir . '/README.md', $docContent);
-            echo '<span class="text-success">Documentation (Markdown) added to the module. </span>';
-        }
-        
-        // Copia o arquivo de documentação HTML para o novo módulo
-        if (file_exists('module_documentation.html')) {
-            // Lê o conteúdo do arquivo de documentação HTML
-            $docHtmlContent = file_get_contents('module_documentation.html');
-            
-            // Substitui placeholders na documentação HTML
-            $docHtmlContent = str_replace(
-                ['mod_yourmodule', 'YourmoduleHelper', 'mod_seumodulo', 'SeumoduloHelper'],
-                ['mod_' . $newWord, ucfirst($newWord) . 'Helper', 'mod_' . $newWord, ucfirst($newWord) . 'Helper'],
-                $docHtmlContent
-            );
-            
-            // Salva a documentação HTML personalizada no novo módulo
-            file_put_contents($newDir . '/documentation.html', $docHtmlContent);
-            echo '<span class="text-success">Documentation (HTML) added to the module. </span>';
-        }
-        
+        echo "<span class='text-success'>Directory 'mod_hello' copied to '$newDir'. </span>";
         addLanguage($newDir, $newLang);
-        replaceContentInFiles($newDir, $newWord, $moduleName, $author, $authorEmail, $authorUrl, $creationDate, $newLang, $clientType);
+        replaceContentInFiles($newDir, $newWord, $moduleName, $author, $authorEmail, $authorUrl, $creationDate, $newLang);
         renameFilesAndDirectories($newDir, $newWord);
-        echo '<span class="text-success">Process completed successfully! </span>';
-        
-        // Adiciona informação sobre o tipo de cliente
-        echo '<span class="text-info">Module created for ' . ($clientType === 'administrator' ? 'Administrator (Backend)' : 'Site (Frontend)') . '. </span>';
-        
+        echo "<span class='text-success'>Process completed successfully! </span>";
         // zip the new module
         $zip = new ZipArchive();
         $zipFileName = $cacheDir . '/mod_' . $newWord . '.zip';
@@ -330,11 +252,11 @@
                 }
             }
             $zip->close();
-            echo '<span class="text-success">The new module has been zipped successfully! </span>';
+            echo "<span class='text-success'>The new module has been zipped successfully! </span>";
             // zip link
-            echo '<span><a href="'.$zipFileName.'" class="btn btn-primary" download>Download module <strong>' . $moduleName . '<strong></a></span>';
+            echo "<span><a href='$zipFileName' class='btn btn-success' download>Download the new module</a>. </span>";
         } else {
-            echo '<span class="text-danger">Failed to zip the new module!';
+            echo "<span class='text-danger'>Failed to zip the new module! </span>";
         }
 
 
